@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <!-- Alert Title (SPAM DETECTED / SUSPICIOUS / SAFE) -->
+    <TextView
+        android:id="@+id/tvAlertTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⚠️ SPAM DETECTED"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- App Name -->
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WhatsApp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Notification Title -->
+    <TextView
+        android:id="@+id/tvNotificationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="URGENT: Account Suspended"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Notification Content -->
+    <TextView
+        android:id="@+id/tvNotificationContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your bank account has been suspended. Click here to verify..."
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:maxLines="4"
+        android:ellipsize="end"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Risk Score -->
+    <TextView
+        android:id="@+id/tvRiskScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Risk: 85%"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Detected Issues -->
+    <TextView
+        android:id="@+id/tvDetectedIssues"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="• Financial scam\n• Urgency tactics\n• Suspicious URL"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_marginBottom="32dp"/>
+
+    <!-- Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <!-- Dismiss Button -->
+        <Button
+            android:id="@+id/btnDismiss"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="DISMISS"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Block Button -->
+        <Button
+            android:id="@+id/btnBlock"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="BLOCK"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/white"
+            android:layout_marginStart="8dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

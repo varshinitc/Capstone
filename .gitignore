@@ -1,0 +1,42 @@
+# Gradle
+.gradle/
+build/
+app/build/
+
+# Local config (contains SDK path - don't share)
+local.properties
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+
+# Kotlin
+.kotlin/
+
+# APK / AAB
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# Backend
+backend/__pycache__/
+backend/*.pyc
+backend/server.log
+backend/server.pid
+server.pid
+
+# Datasets (large files)
+datasets/
+backend/data/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
+
+# Logs
+*.log

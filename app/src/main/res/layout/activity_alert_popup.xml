@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Alert Icon -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚠️"
+            android:textSize="48sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Security Alert"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="App Name"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Risk Indicator Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardRiskIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/high_risk_red"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvRiskLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HIGH RISK"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/tvRiskScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Risk Score: 85%"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Notification Content Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notification Content"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvNotificationTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Notification Title"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:id="@+id/tvNotificationContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Notification content goes here"
+                    android:textSize="14sp"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Detected Issues -->
+        <TextView
+            android:id="@+id/tvIssuesTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detected Issues:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/high_risk_red"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tvIssuesList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Issue 1\n• Issue 2"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Explanation -->
+        <TextView
+            android:id="@+id/tvExplanation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Explanation text"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:alpha="0.7"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Open Notification Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOpenNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Open Notification"
+                android:textSize="14sp"
+                app:backgroundTint="@color/purple_500"
+                app:cornerRadius="8dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Ignore Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnIgnore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ignore"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/white"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1dp"
+                app:cornerRadius="8dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Mark Feedback Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMarkFeedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Provide Feedback"
+                android:textSize="14sp"
+                android:textColor="@color/purple_500"
+                app:backgroundTint="@color/white"
+                app:strokeColor="@color/purple_500"
+                app:strokeWidth="1dp"
+                app:cornerRadius="8dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
