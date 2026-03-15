@@ -48,36 +48,22 @@ class NotificationAdapter(
             binding.tvRiskLevel.text = notification.riskLevel.replace("_", " ")
             
             // Set risk level color
-            val (backgroundColor, textColor) = when (notification.riskLevel) {
-                "SAFE" -> Pair(
-                    ContextCompat.getColor(binding.root.context, R.color.safe_green),
-                    ContextCompat.getColor(binding.root.context, R.color.white)
-                )
-                "SUSPICIOUS" -> Pair(
-                    ContextCompat.getColor(binding.root.context, R.color.suspicious_yellow),
-                    ContextCompat.getColor(binding.root.context, R.color.black)
-                )
-                "HIGH_RISK" -> Pair(
-                    ContextCompat.getColor(binding.root.context, R.color.high_risk_red),
-                    ContextCompat.getColor(binding.root.context, R.color.white)
-                )
-                else -> Pair(
-                    ContextCompat.getColor(binding.root.context, R.color.black),
-                    ContextCompat.getColor(binding.root.context, R.color.white)
-                )
-            }
+
             
-            binding.tvRiskLevel.setBackgroundColor(backgroundColor)
-            binding.tvRiskLevel.setTextColor(textColor)
-            
-            // Set card background tint based on risk
-            val cardTint = when (notification.riskLevel) {
-                "SAFE" -> ContextCompat.getColor(binding.root.context, R.color.white)
-                "SUSPICIOUS" -> ContextCompat.getColorStateList(binding.root.context, R.color.suspicious_yellow)?.withAlpha(30)?.defaultColor ?: ContextCompat.getColor(binding.root.context, R.color.white)
-                "HIGH_RISK" -> ContextCompat.getColorStateList(binding.root.context, R.color.high_risk_red)?.withAlpha(30)?.defaultColor ?: ContextCompat.getColor(binding.root.context, R.color.white)
-                else -> ContextCompat.getColor(binding.root.context, R.color.white)
+            // Apply pill drawable per risk level
+            val pillDrawable = when (notification.riskLevel) {
+                "SAFE" -> R.drawable.bg_pill_safe
+                "SUSPICIOUS" -> R.drawable.bg_pill_warning
+                "HIGH_RISK" -> R.drawable.bg_pill_danger
+                else -> R.drawable.bg_pill_safe
             }
-            binding.cardNotification.setCardBackgroundColor(cardTint)
+            binding.tvRiskLevel.background = ContextCompat.getDrawable(binding.root.context, pillDrawable)
+            binding.tvRiskLevel.setTextColor(ContextCompat.getColor(binding.root.context, R.color.white))
+
+            // Dark card background for all cards
+            binding.cardNotification.setCardBackgroundColor(
+                ContextCompat.getColor(binding.root.context, R.color.bg_surface)
+            )
             
             // Click listener
             binding.root.setOnClickListener {

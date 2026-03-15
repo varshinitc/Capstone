@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView 
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:background="@color/bg_primary"
+    android:scrollbars="none">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,18 +17,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="16dp"
             android:gravity="center_vertical"
-            android:background="@color/white"
-            android:elevation="4dp">
+            android:background="@color/bg_secondary">
 
             <ImageButton
                 android:id="@+id/btnBack"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:src="@android:drawable/ic_menu_revert"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Back" />
+                android:background="@drawable/bg_btn_secondary"
+                android:contentDescription="Back"
+                android:padding="6dp" />
 
             <TextView
                 android:layout_width="0dp"
@@ -35,52 +40,61 @@
                 android:text="Settings"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginStart="8dp" />
+                android:textColor="@color/text_primary"
+                android:layout_marginStart="12dp" />
 
         </LinearLayout>
 
+        <!-- Content -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:background="@color/settings_background"
-            android:textColor="@color/settings_text">
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="24dp">
 
-            <!-- General Settings -->
+            <!-- GENERAL -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="General Settings"
-                android:textSize="18sp"
+                android:text="GENERAL"
+                android:textSize="11sp"
                 android:textStyle="bold"
-                android:textColor="@color/purple_700"
-                android:layout_marginBottom="12dp" />
+                android:textColor="@color/accent_blue"
+                android:letterSpacing="0.12"
+                android:layout_marginBottom="10dp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/bg_surface"
+                android:layout_marginBottom="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:background="@drawable/bg_card_cyber">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="52dp"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Enable Monitoring"
-                            android:textSize="16sp" />
+                            android:textSize="15sp"
+                            android:textColor="@color/text_primary" />
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/switchMonitoring"
@@ -92,21 +106,25 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#E0E0E0"
-                        android:layout_marginVertical="12dp" />
+                        android:background="@color/border_subtle"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="52dp"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Enable Popup Alerts"
-                            android:textSize="16sp" />
+                            android:textSize="15sp"
+                            android:textColor="@color/text_primary" />
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/switchPopupAlerts"
@@ -118,21 +136,25 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#E0E0E0"
-                        android:layout_marginVertical="12dp" />
+                        android:background="@color/border_subtle"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="52dp"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Run on Device Startup"
-                            android:textSize="16sp" />
+                            android:textSize="15sp"
+                            android:textColor="@color/text_primary" />
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/switchRunOnStartup"
@@ -145,39 +167,46 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Detection Settings -->
+            <!-- DETECTION -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Detection Settings"
-                android:textSize="18sp"
+                android:text="DETECTION"
+                android:textSize="11sp"
                 android:textStyle="bold"
-                android:textColor="@color/purple_700"
-                android:layout_marginBottom="12dp" />
+                android:textColor="@color/accent_blue"
+                android:letterSpacing="0.12"
+                android:layout_marginBottom="10dp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/bg_surface"
+                android:layout_marginBottom="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:background="@drawable/bg_card_cyber">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="52dp"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Enable ML Detection"
-                            android:textSize="16sp" />
+                            android:textSize="15sp"
+                            android:textColor="@color/text_primary" />
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/switchMlDetection"
@@ -189,21 +218,25 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#E0E0E0"
-                        android:layout_marginVertical="12dp" />
+                        android:background="@color/border_subtle"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="52dp"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Enable Rule-Based Detection"
-                            android:textSize="16sp" />
+                            android:textSize="15sp"
+                            android:textColor="@color/text_primary" />
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/switchRuleBased"
@@ -215,21 +248,25 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#E0E0E0"
-                        android:layout_marginVertical="12dp" />
+                        android:background="@color/border_subtle"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="52dp"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Enable URL Analysis"
-                            android:textSize="16sp" />
+                            android:textSize="15sp"
+                            android:textColor="@color/text_primary" />
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/switchUrlAnalysis"
@@ -241,81 +278,106 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="⚠️ Note: Never remove rules completely"
-                        android:textSize="12sp"
+                        android:text="⚠️  Never disable all detection rules simultaneously"
+                        android:textSize="11sp"
                         android:textColor="@color/high_risk_red"
-                        android:layout_marginTop="8dp" />
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="12dp" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Alert Customization -->
+            <!-- ALERTS -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alert Customization"
-                android:textSize="18sp"
+                android:text="ALERTS"
+                android:textSize="11sp"
                 android:textStyle="bold"
-                android:textColor="@color/purple_700"
-                android:layout_marginBottom="12dp" />
+                android:textColor="@color/accent_blue"
+                android:letterSpacing="0.12"
+                android:layout_marginBottom="10dp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/bg_surface"
+                android:layout_marginBottom="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Alert Type"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="8dp" />
-
-                    <RadioGroup
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <RadioButton
-                            android:id="@+id/radioPopup"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Popup Dialog"
-                            android:checked="true" />
-
-                        <RadioButton
-                            android:id="@+id/radioNotification"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Notification" />
-
-                    </RadioGroup>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#E0E0E0"
-                        android:layout_marginVertical="12dp" />
+                    android:background="@drawable/bg_card_cyber">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="14dp"
+                        android:paddingBottom="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Alert Type"
+                            android:textSize="13sp"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginBottom="8dp" />
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/radioPopup"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Popup Dialog"
+                                android:textColor="@color/text_primary"
+                                android:buttonTint="@color/accent_blue"
+                                android:checked="true" />
+
+                            <RadioButton
+                                android:id="@+id/radioNotification"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Notification"
+                                android:textColor="@color/text_primary"
+                                android:buttonTint="@color/accent_blue" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/border_subtle"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Alert Sound"
-                            android:textSize="16sp" />
+                            android:textSize="15sp"
+                            android:textColor="@color/text_primary" />
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/switchAlertSound"
@@ -327,21 +389,25 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#E0E0E0"
-                        android:layout_marginVertical="12dp" />
+                        android:background="@color/border_subtle"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="52dp"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Vibration"
-                            android:textSize="16sp" />
+                            android:textSize="15sp"
+                            android:textColor="@color/text_primary" />
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/switchVibration"
@@ -354,39 +420,46 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Privacy Settings -->
+            <!-- PRIVACY -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Privacy Settings"
-                android:textSize="18sp"
+                android:text="PRIVACY"
+                android:textSize="11sp"
                 android:textStyle="bold"
-                android:textColor="@color/purple_700"
-                android:layout_marginBottom="12dp" />
+                android:textColor="@color/accent_blue"
+                android:letterSpacing="0.12"
+                android:layout_marginBottom="10dp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/bg_surface"
+                android:layout_marginBottom="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:background="@drawable/bg_card_cyber">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="52dp"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Store Notifications Locally"
-                            android:textSize="16sp" />
+                            android:textSize="15sp"
+                            android:textColor="@color/text_primary" />
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/switchStoreLocally"
@@ -398,21 +471,25 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="#E0E0E0"
-                        android:layout_marginVertical="12dp" />
+                        android:background="@color/border_subtle"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="52dp"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Allow Cloud Backup"
-                            android:textSize="16sp" />
+                            android:textSize="15sp"
+                            android:textColor="@color/text_primary" />
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/switchCloudBackup"

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout 
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/home_background">
+    android:background="@color/bg_primary">
 
-    <!-- Scrollable Content -->
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:scrollbars="none"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,31 +20,77 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="16dp">
 
-            <!-- Header -->
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- Header Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dashboard"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="@color/home_text"
-                android:layout_marginBottom="16dp" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="24dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AI Shield"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:letterSpacing="0.02" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Notification Threat Monitor"
+                        android:textSize="13sp"
+                        android:textColor="@color/accent_blue" />
+
+                </LinearLayout>
+
+                <!-- Live indicator dot -->
+                <View
+                    android:id="@+id/viewLiveDot"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/bg_pill_safe"
+                    android:layout_marginEnd="6dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LIVE"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/safe_green"
+                    android:letterSpacing="0.1" />
+
+            </LinearLayout>
 
             <!-- Monitoring Status Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/bg_surface"
                 android:layout_marginBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="18dp"
+                    android:background="@drawable/bg_card_cyber">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -52,14 +98,29 @@
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
 
-                        <TextView
+                        <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Monitoring Status"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/home_text" />
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Monitoring Status"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Enable to scan incoming notifications"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_muted"
+                                android:layout_marginTop="2dp" />
+
+                        </LinearLayout>
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/switchMonitoring"
@@ -68,20 +129,11 @@
 
                     </LinearLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Enable to monitor incoming notifications"
-                        android:textSize="14sp"
-                        android:textColor="@color/home_text"
-                        android:alpha="0.7"
-                        android:layout_marginTop="4dp" />
-
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Summary Cards Title -->
+            <!-- Summary Section Title -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -94,145 +146,146 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Today's Summary"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     android:textStyle="bold"
-                    android:textColor="@color/home_text" />
+                    android:textColor="@color/text_primary" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnRefresh"
                     android:layout_width="wrap_content"
-                    android:layout_height="36dp"
+                    android:layout_height="34dp"
                     android:text="Refresh"
-                    android:textSize="12sp"
-                    android:textColor="@color/white"
-                    android:backgroundTint="@color/purple_500"
-                    app:icon="@android:drawable/ic_menu_rotate"
-                    app:iconTint="@color/white"
-                    app:cornerRadius="8dp"
+                    android:textSize="11sp"
+                    android:textColor="@color/bg_primary"
+                    android:backgroundTint="@color/accent_blue"
+                    app:cornerRadius="10dp"
                     style="@style/Widget.MaterialComponents.Button" />
 
             </LinearLayout>
 
-            <!-- Horizontal Scroll for Summary Cards -->
+            <!-- Summary Cards Row -->
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="none"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="20dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <!-- Card 1: Today's Count -->
+                    <!-- Analyzed Today -->
                     <androidx.cardview.widget.CardView
-                        android:layout_width="160dp"
-                        android:layout_height="120dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="4dp"
-                        android:layout_marginEnd="12dp"
-                        app:cardBackgroundColor="@color/purple_500">
+                        android:layout_width="150dp"
+                        android:layout_height="110dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/bg_surface"
+                        android:layout_marginEnd="12dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
                             android:padding="16dp"
-                            android:gravity="center">
+                            android:gravity="center"
+                            android:background="@drawable/bg_card_cyber">
 
                             <TextView
                                 android:id="@+id/tvTodayCount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
-                                android:textSize="36sp"
+                                android:textSize="34sp"
                                 android:textStyle="bold"
-                                android:textColor="@color/white" />
+                                android:textColor="@color/accent_blue" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Analyzed Today"
-                                android:textSize="14sp"
-                                android:textColor="@color/white"
+                                android:text="Analyzed"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary"
                                 android:textAlignment="center"
-                                android:layout_marginTop="8dp" />
+                                android:layout_marginTop="6dp" />
 
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
 
-                    <!-- Card 2: Suspicious Count -->
+                    <!-- Suspicious -->
                     <androidx.cardview.widget.CardView
-                        android:layout_width="160dp"
-                        android:layout_height="120dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="4dp"
-                        android:layout_marginEnd="12dp"
-                        app:cardBackgroundColor="@color/suspicious_yellow">
+                        android:layout_width="150dp"
+                        android:layout_height="110dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/bg_surface"
+                        android:layout_marginEnd="12dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
                             android:padding="16dp"
-                            android:gravity="center">
+                            android:gravity="center"
+                            android:background="@drawable/bg_card_cyber">
 
                             <TextView
                                 android:id="@+id/tvSuspiciousCount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
-                                android:textSize="36sp"
+                                android:textSize="34sp"
                                 android:textStyle="bold"
-                                android:textColor="@color/white" />
+                                android:textColor="@color/suspicious_yellow" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Suspicious Alerts"
-                                android:textSize="14sp"
-                                android:textColor="@color/white"
+                                android:text="Suspicious"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary"
                                 android:textAlignment="center"
-                                android:layout_marginTop="8dp" />
+                                android:layout_marginTop="6dp" />
 
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
 
-                    <!-- Card 3: High Risk Count -->
+                    <!-- High Risk -->
                     <androidx.cardview.widget.CardView
-                        android:layout_width="160dp"
-                        android:layout_height="120dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="4dp"
-                        app:cardBackgroundColor="@color/high_risk_red">
+                        android:layout_width="150dp"
+                        android:layout_height="110dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/bg_surface">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
                             android:padding="16dp"
-                            android:gravity="center">
+                            android:gravity="center"
+                            android:background="@drawable/bg_card_cyber">
 
                             <TextView
                                 android:id="@+id/tvHighRiskCount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
-                                android:textSize="36sp"
+                                android:textSize="34sp"
                                 android:textStyle="bold"
-                                android:textColor="@color/white" />
+                                android:textColor="@color/high_risk_red" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="High Risk Alerts"
-                                android:textSize="14sp"
-                                android:textColor="@color/white"
+                                android:text="High Risk"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_secondary"
                                 android:textAlignment="center"
-                                android:layout_marginTop="8dp" />
+                                android:layout_marginTop="6dp" />
 
                         </LinearLayout>
 
@@ -242,52 +295,56 @@
 
             </HorizontalScrollView>
 
-            <!-- Last Detected Card -->
+            <!-- Last Detected -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Last Detected"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
-                android:textColor="@color/home_text"
+                android:textColor="@color/text_primary"
                 android:layout_marginBottom="12dp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/bg_surface"
                 android:layout_marginBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="18dp"
+                    android:background="@drawable/bg_card_cyber">
 
                     <TextView
                         android:id="@+id/tvLastAppName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="No notifications yet"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
-                        android:textColor="@color/home_text" />
+                        android:textColor="@color/accent_blue" />
 
                     <TextView
                         android:id="@+id/tvLastTitle"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text=""
                         android:textSize="14sp"
-                        android:textColor="@color/home_text"
-                        android:layout_marginTop="4dp" />
+                        android:textColor="@color/text_primary"
+                        android:layout_marginTop="4dp"
+                        android:maxLines="2"
+                        android:ellipsize="end" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_marginTop="8dp">
+                        android:layout_marginTop="10dp">
 
                         <TextView
                             android:id="@+id/tvLastTime"
@@ -296,16 +353,19 @@
                             android:layout_weight="1"
                             android:text=""
                             android:textSize="12sp"
-                            android:textColor="@color/home_text"
-                            android:alpha="0.6" />
+                            android:textColor="@color/text_muted" />
 
                         <TextView
                             android:id="@+id/tvLastRiskLevel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=""
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp" />
 
                     </LinearLayout>
 
@@ -313,19 +373,21 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Real-Time Alert Card -->
+            <!-- Real-Time Alerts Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                android:layout_marginBottom="16dp">
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/bg_surface"
+                android:layout_marginBottom="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="18dp"
+                    android:background="@drawable/bg_card_cyber">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -333,14 +395,29 @@
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
 
-                        <TextView
+                        <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Real-Time Alerts"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/home_text" />
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Real-Time Alerts"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Instant heads-up for threats"
+                                android:textSize="12sp"
+                                android:textColor="@color/text_muted"
+                                android:layout_marginTop="2dp" />
+
+                        </LinearLayout>
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/switchRealTimeAlert"
@@ -349,15 +426,6 @@
                             android:checked="true" />
 
                     </LinearLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Get instant alerts for suspicious notifications"
-                        android:textSize="14sp"
-                        android:textColor="@color/home_text"
-                        android:alpha="0.7"
-                        android:layout_marginTop="4dp" />
 
                 </LinearLayout>
 
@@ -372,7 +440,7 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@drawable/bg_bottom_nav"
         app:itemIconTint="@color/bottom_nav_color"
         app:itemTextColor="@color/bottom_nav_color"
         app:menu="@menu/bottom_nav_menu"

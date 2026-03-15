@@ -1,21 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <!-- Base backgrounds -->
+    <color name="bg_primary">#0F172A</color>
+    <color name="bg_secondary">#111827</color>
+    <color name="bg_surface">#1E293B</color>
+    <color name="bg_card">#1E293B</color>
+
+    <!-- Accent / neon -->
+    <color name="accent_blue">#38BDF8</color>
+    <color name="accent_cyan">#22D3EE</color>
+    <color name="accent_hover">#0EA5E9</color>
+
+    <!-- Status -->
+    <color name="safe_green">#22C55E</color>
+    <color name="suspicious_yellow">#F59E0B</color>
+    <color name="high_risk_red">#EF4444</color>
+
+    <!-- Text -->
+    <color name="text_primary">#F1F5F9</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_muted">#64748B</color>
+
+    <!-- Border -->
+    <color name="border_subtle">#334155</color>
+
+    <!-- Legacy aliases kept for compatibility -->
     <color name="white">#FFFFFFFF</color>
-    <color name="safe_green">#4CAF50</color>
-    <color name="suspicious_yellow">#FFC107</color>
-    <color name="high_risk_red">#F44336</color>
-    <color name="home_background">#FF6200EE</color>
-    <color name="home_text">#FFFFFFFF</color>
-    <color name="history_background">#FF6200EE</color>
-    <color name="history_text">#FFFFFFFF</color>
-    <color name="settings_background">#FF6200EE</color>
-    <color name="settings_text">#FFFFFFFF</color>
-    <color name="about_background">#FF6200EE</color>
-    <color name="about_text">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="home_background">#0F172A</color>
+    <color name="home_text">#F1F5F9</color>
+    <color name="history_background">#0F172A</color>
+    <color name="history_text">#F1F5F9</color>
+    <color name="settings_background">#0F172A</color>
+    <color name="settings_text">#F1F5F9</color>
+    <color name="about_background">#0F172A</color>
+    <color name="about_text">#F1F5F9</color>
+    <color name="purple_200">#38BDF8</color>
+    <color name="purple_500">#38BDF8</color>
+    <color name="purple_700">#0EA5E9</color>
+    <color name="teal_200">#22D3EE</color>
+    <color name="teal_700">#22D3EE</color>
 </resources>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView 
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:background="@color/bg_primary"
+    android:scrollbars="none">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,28 +17,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="16dp"
             android:gravity="center_vertical"
-            android:background="@color/white"
-            android:elevation="4dp">
+            android:background="@color/bg_secondary">
 
             <ImageButton
                 android:id="@+id/btnBack"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:src="@android:drawable/ic_menu_revert"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Back" />
+                android:background="@drawable/bg_btn_secondary"
+                android:contentDescription="Back"
+                android:padding="6dp" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Notification Details"
+                android:text="Threat Analysis"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginStart="8dp" />
+                android:textColor="@color/text_primary"
+                android:layout_marginStart="12dp" />
 
         </LinearLayout>
 
@@ -46,21 +50,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="24dp">
 
             <!-- App Info Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                android:layout_marginBottom="16dp">
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/bg_surface"
+                android:layout_marginBottom="14dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="18dp"
+                    android:background="@drawable/bg_card_cyber">
 
                     <TextView
                         android:id="@+id/tvAppName"
@@ -69,7 +78,7 @@
                         android:text="App Name"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/accent_blue" />
 
                     <TextView
                         android:id="@+id/tvPackageName"
@@ -77,8 +86,7 @@
                         android:layout_height="wrap_content"
                         android:text="com.example.app"
                         android:textSize="12sp"
-                        android:textColor="@color/black"
-                        android:alpha="0.6"
+                        android:textColor="@color/text_muted"
                         android:layout_marginTop="4dp" />
 
                     <TextView
@@ -87,8 +95,7 @@
                         android:layout_height="wrap_content"
                         android:text="Monday, Jan 01, 2024 at 12:00"
                         android:textSize="12sp"
-                        android:textColor="@color/black"
-                        android:alpha="0.6"
+                        android:textColor="@color/text_muted"
                         android:layout_marginTop="4dp" />
 
                 </LinearLayout>
@@ -100,33 +107,34 @@
                 android:id="@+id/cardRiskLevel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
                 app:cardBackgroundColor="@color/high_risk_red"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="14dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="20dp">
 
                     <TextView
                         android:id="@+id/tvRiskLevel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="HIGH RISK"
-                        android:textSize="24sp"
+                        android:textSize="22sp"
                         android:textStyle="bold"
                         android:textColor="@color/white"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:letterSpacing="0.05" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:layout_marginTop="12dp">
+                        android:layout_marginTop="14dp">
 
                         <ProgressBar
                             android:id="@+id/progressRiskScore"
@@ -136,17 +144,18 @@
                             android:layout_weight="1"
                             android:max="100"
                             android:progress="85"
-                            android:progressTint="@color/white" />
+                            android:progressTint="@color/white"
+                            android:progressBackgroundTint="#44FFFFFF" />
 
                         <TextView
                             android:id="@+id/tvRiskScore"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="85%"
-                            android:textSize="16sp"
+                            android:textSize="18sp"
                             android:textStyle="bold"
                             android:textColor="@color/white"
-                            android:layout_marginStart="12dp" />
+                            android:layout_marginStart="14dp" />
 
                     </LinearLayout>
 
@@ -158,52 +167,59 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                android:layout_marginBottom="16dp">
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/bg_surface"
+                android:layout_marginBottom="14dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="18dp"
+                    android:background="@drawable/bg_card_cyber">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Notification Content"
-                        android:textSize="16sp"
+                        android:text="NOTIFICATION CONTENT"
+                        android:textSize="11sp"
                         android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:layout_marginBottom="12dp" />
+                        android:textColor="@color/accent_blue"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="14dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Title:"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:alpha="0.7" />
+                        android:text="Title"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_muted"
+                        android:layout_marginBottom="4dp" />
 
                     <TextView
                         android:id="@+id/tvTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Notification Title"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="12dp" />
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="14dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/border_subtle"
+                        android:layout_marginBottom="14dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Content:"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:alpha="0.7" />
+                        android:text="Message"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_muted"
+                        android:layout_marginBottom="4dp" />
 
                     <TextView
                         android:id="@+id/tvContent"
@@ -211,8 +227,8 @@
                         android:layout_height="wrap_content"
                         android:text="Notification content goes here"
                         android:textSize="14sp"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="4dp" />
+                        android:textColor="@color/text_secondary"
+                        android:lineSpacingMultiplier="1.4" />
 
                 </LinearLayout>
 
@@ -222,24 +238,27 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                android:layout_marginBottom="16dp">
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/bg_surface"
+                android:layout_marginBottom="14dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="18dp"
+                    android:background="@drawable/bg_card_cyber">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Detected Issues"
-                        android:textSize="16sp"
+                        android:text="DETECTED THREATS"
+                        android:textSize="11sp"
                         android:textStyle="bold"
                         android:textColor="@color/high_risk_red"
-                        android:layout_marginBottom="12dp" />
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="14dp" />
 
                     <TextView
                         android:id="@+id/tvIssuesList"
@@ -247,7 +266,8 @@
                         android:layout_height="wrap_content"
                         android:text="• Issue 1\n• Issue 2"
                         android:textSize="14sp"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/text_secondary"
+                        android:lineSpacingMultiplier="1.6" />
 
                 </LinearLayout>
 
@@ -259,50 +279,53 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Feedback: Marked Safe"
-                android:textSize="14sp"
+                android:textSize="13sp"
                 android:textStyle="bold"
                 android:textColor="@color/safe_green"
                 android:textAlignment="center"
                 android:padding="12dp"
+                android:background="@drawable/bg_card_cyber"
                 android:visibility="gone"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="14dp" />
 
-            <!-- Feedback Buttons -->
+            <!-- Feedback Section -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Provide Feedback"
-                android:textSize="16sp"
+                android:text="PROVIDE FEEDBACK"
+                android:textSize="11sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginBottom="12dp" />
+                android:textColor="@color/accent_blue"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="10dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnMarkSafe"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_weight="1"
-                    android:text="Mark Safe"
-                    android:textSize="14sp"
-                    app:backgroundTint="@color/safe_green"
-                    app:cornerRadius="8dp"
+                    android:text="✓  Mark Safe"
+                    android:textSize="13sp"
+                    android:textColor="@color/bg_primary"
+                    android:backgroundTint="@color/safe_green"
+                    app:cornerRadius="10dp"
                     android:layout_marginEnd="8dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnMarkPhishing"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_weight="1"
-                    android:text="Mark Phishing"
-                    android:textSize="14sp"
-                    app:backgroundTint="@color/high_risk_red"
-                    app:cornerRadius="8dp"
+                    android:text="⚠  Mark Threat"
+                    android:textSize="13sp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/high_risk_red"
+                    app:cornerRadius="10dp"
                     android:layout_marginStart="8dp" />
 
             </LinearLayout>
